@@ -5,7 +5,7 @@ class BoomTemplate {
         }
         for (var m = this.template.getElementsByTagName("boom-for"), o = (m[o].innerHTML, 0); o < m.length; o++) {
           for (var r = 0; r < m[o].getAttribute("boom-ittr"); r++) {
-            m[o].innerHTML = m[o].innerHTML + ihtml;
+            m[o].innerHTML += ihtml;
           }
         }
     }
