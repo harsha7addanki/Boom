@@ -32,7 +32,7 @@ class BoomBindElement extends HTMLElement {
     const wrapper = document.createElement("div")
     if(this.hasAttribute("bname")){
       // avoid users from knowing the raw id (Could be used for exploit). Keep it as class becauce what if you want to mass change something?
-      wrapper.setAttribute("class",`boom-${Buffer.from(this.getAttribute("bname"), 'utf8').toString('base64')}`)
+      wrapper.setAttribute("class",`boom-${bota(this.getAttribute("bname"))}`)
     }else{
       throw "No BName"
     }
