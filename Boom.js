@@ -1,4 +1,5 @@
-class BoomTemplate {
+// if we use web components we have to change api so this class is now Legacy
+class LegacyBoomTemplate {
     constructor(t) {
         for (var e = document.getElementsByTagName("boom-template"), n = 0; n < e.length; n++){
             e[n].getAttribute("boom-tid") == t && ((this.templateDoc = new DOMParser().parseFromString(e[n].innerHTML, "text/html")), (this.template = e[n]));
@@ -15,4 +16,18 @@ class BoomTemplate {
         }
         this.template.innerHTML = this.templateDoc.documentElement.innerHTML;
     }
+}
+
+/*
+ * YAY UNTESTED CODE
+*/
+
+class BoomBind extends HTMLElement {
+  constructor(){
+    super()
+  }
+
+  connectedCallback(){
+    this.attachShadow();
+  }
 }
