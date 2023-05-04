@@ -22,12 +22,22 @@ class LegacyBoomTemplate {
  * YAY UNTESTED CODE
 */
 
-class BoomBind extends HTMLElement {
+class BoomBindElement extends HTMLElement {
   constructor(){
     super()
   }
 
   connectedCallback(){
-    this.attachShadow();
+    this.attachShadow({mode:"open"});
+    const wrapper = document.createElement("div")
+    if(this.hasAttribute("bname")){
+      // avoid users from knowing the raw id (Could be used for exploit). Keep it as class becauce what if you want to mass change something?
+      wrapper.setAttribute("class",`boom-${Buffer.from(this.getAttribute("bname"), 'utf8').toString('base64')}`)
+    }else{
+      throw "No BName"
+    }
+    this.shadowRoot.append(wrapper)
   }
 }
+
+customElements.define("boom-bind", BoomBindElement);
