@@ -23,4 +23,7 @@ module.exports = {
     compress: true,
     port: 4000,
   },
+  optimization: {
+    minimize: false
+},
 };
