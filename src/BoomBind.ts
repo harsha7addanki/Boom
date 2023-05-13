@@ -4,15 +4,14 @@ class BoomBindElement extends HTMLElement {
     }
 
     connectedCallback(){
-        this.attachShadow({mode:"open"});
         const wrapper = document.createElement("div")
         if(this.hasAttribute("bname")){
-        // avoid users from knowing the raw id (Could be used for exploit). Keep it as class becauce what if you want to mass change something?
-        wrapper.setAttribute("class",`boom-${this.getAttribute("bname")}`)
+            // avoid users from knowing the raw id (Could be used for exploit). Keep it as class becauce what if you want to mass change something?
+            wrapper.setAttribute("class",`boom-${this.getAttribute("bname")}`)
         }else{
-        throw "No BName"
+            throw "No BName"
         }
-        this.shadowRoot.append(wrapper)
+        this.appendChild(wrapper)
     }
 }
 

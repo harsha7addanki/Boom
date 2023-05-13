@@ -17,9 +17,10 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        library: "BoomJS",
-        libraryTarget: 'umd',
-        umdNamedDefine: true,
+        library:{
+            type:"umd",
+            name:"Boom"
+        }
     },
     devServer: {
         static: path.join(__dirname, "dist"),
